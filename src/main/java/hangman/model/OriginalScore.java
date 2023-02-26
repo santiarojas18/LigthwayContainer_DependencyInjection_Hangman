@@ -27,7 +27,11 @@ public class OriginalScore implements GameScore {
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
 		
-		
+		int tempIncorrectCount = incorrectCount;
+		while ( score >= 10  && tempIncorrectCount > 0) {
+			score -= 10;
+			tempIncorrectCount -= 1;
+		}
 		return score;
 	}
 

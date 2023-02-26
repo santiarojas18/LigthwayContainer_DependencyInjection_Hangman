@@ -26,7 +26,16 @@ public class BonusScore implements GameScore {
 	 * @Param intcorrectCount is the amount of incorrect letters in current turn
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
-		
+		score += correctCount * 10;
+		int tempIncorrectCount = incorrectCount;
+		while ( score > 0  && tempIncorrectCount > 0) {
+			if (score >= 5 ) {
+				score -= 5;
+			} else {
+				score = 0;
+			}
+			tempIncorrectCount -= 1;
+		}
 		return score;
 	}
 

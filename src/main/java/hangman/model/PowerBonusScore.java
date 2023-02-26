@@ -29,7 +29,21 @@ public class PowerBonusScore implements GameScore {
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
 		
-		
+		int tempIncorrectCount = incorrectCount;
+		if ( correctCount > 0 && score + Math.pow(5, correctCount) <= 500) {
+			score += Math.pow(5, correctCount) ;
+		} else {
+			score = 500;
+		}
+		while ( score > 0 && tempIncorrectCount > 0) {
+			
+			if (score >= 8 ) {
+				score -= 8;
+			} else {
+				score = 0;
+			}
+			tempIncorrectCount -= 1;
+		}
 		return score;
 	}
 
