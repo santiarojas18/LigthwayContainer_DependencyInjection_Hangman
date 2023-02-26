@@ -26,8 +26,9 @@ public class OriginalScore implements GameScore {
 	 * @throws HangmanExceptions
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		
+		return score;
 	}
 
 }

@@ -1,5 +1,7 @@
 package hangman.model;
 
+import hangman.exceptions.HangmanExceptions;
+
 /**
  * Class with the hangman bonus score
  * @author Santiago Arevalo y Juan Sanchez
@@ -23,9 +25,9 @@ public class BonusScore implements GameScore {
 	 * @Param correctCount is the amount of correct letters in current turn
 	 * @Param intcorrectCount is the amount of incorrect letters in current turn
 	 */
-	public int calculateScore(int correctCount, int incorrectCount) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
+		
+		return score;
 	}
 
 }
