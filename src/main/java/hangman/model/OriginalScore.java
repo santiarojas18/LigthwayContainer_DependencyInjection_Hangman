@@ -1,5 +1,7 @@
 package hangman.model;
 
+import hangman.exceptions.*;
+
 /**
  * Class with the original hangman score
  * @author Santiago Arevalo y Juan Sanchez
@@ -21,8 +23,9 @@ public class OriginalScore implements GameScore {
 	 * and the minimum score is 0
 	 * @Param correctCount is the amount of correct letters in current turn
 	 * @Param intcorrectCount is the amount of incorrect letters in current turn
+	 * @throws HangmanExceptions
 	 */
-	public int calculateScore(int correctCount, int incorrectCount) {
+	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
 		// TODO Auto-generated method stub
 		return 0;
 	}
