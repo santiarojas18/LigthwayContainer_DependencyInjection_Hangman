@@ -40,7 +40,6 @@ class CalculateScoreTest {
 			score = scoreCalculator.calculateScore(correctPoints, incorrectPoints);
 		} catch (HangmanExceptions e) {
 		}
-		System.out.println(score);
 		
 		//assert
 		assertEquals(0, score);

@@ -77,7 +77,7 @@ class CalculateScoreTest {
 		}
 		
 		//assert
-		assertEquals(125, score);
+		assertEquals(155, score);
 	}
 
 	@Test
@@ -124,7 +124,7 @@ class CalculateScoreTest {
 		}
 		
 		//assert
-		assertEquals(1, score);
+		assertEquals(6, score);
 	}
 
 }

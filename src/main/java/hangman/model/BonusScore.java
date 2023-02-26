@@ -1,5 +1,6 @@
 package hangman.model;
 
+import hangman.exceptions.ANegativeValue;
 import hangman.exceptions.HangmanExceptions;
 
 /**
@@ -26,6 +27,7 @@ public class BonusScore implements GameScore {
 	 * @Param intcorrectCount is the amount of incorrect letters in current turn
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
+		if (correctCount < 0 || incorrectCount < 0) throw new ANegativeValue("A negative number can't be sent");
 		score += correctCount * 10;
 		int tempIncorrectCount = incorrectCount;
 		while ( score > 0  && tempIncorrectCount > 0) {

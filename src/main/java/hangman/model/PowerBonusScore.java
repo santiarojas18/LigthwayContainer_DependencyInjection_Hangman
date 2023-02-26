@@ -1,5 +1,6 @@
 package hangman.model;
 
+import hangman.exceptions.ANegativeValue;
 import hangman.exceptions.HangmanExceptions;
 
 /**
@@ -9,12 +10,14 @@ import hangman.exceptions.HangmanExceptions;
  */
 public class PowerBonusScore implements GameScore {
 	private int score;
+	private int currentCorrectPoints;
 	
 	/**
 	 * Constructor of PowerBonusScore objects, with initial score of 0
 	 */
 	public PowerBonusScore () {
 		score = 0;
+		currentCorrectPoints = 0;
 	}
 	
 	
@@ -28,21 +31,27 @@ public class PowerBonusScore implements GameScore {
 	 * @Param intcorrectCount is the amount of incorrect letters in current turn
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
-		
-		int tempIncorrectCount = incorrectCount;
-		if ( correctCount > 0 && score + Math.pow(5, correctCount) <= 500) {
-			score += Math.pow(5, correctCount) ;
-		} else {
-			score = 500;
+		if (correctCount < 0 || incorrectCount < 0) throw new ANegativeValue("A negative number can't be sent");
+		int temporalScore = score;
+		for (int i = 0; i < correctCount; i++) {
+			currentCorrectPoints++;
+			temporalScore += Math.pow(5, currentCorrectPoints);
+			if (temporalScore <= 500) {
+				score = temporalScore;
+			} else {
+				score = 500;
+				break;
+			}
 		}
-		while ( score > 0 && tempIncorrectCount > 0) {
-			
-			if (score >= 8 ) {
-				score -= 8;
+		temporalScore = score;
+		for (int i = 0; i < incorrectCount; i++) {
+			temporalScore -= 8;
+			if (temporalScore >= 0) {
+				score = temporalScore;
 			} else {
 				score = 0;
+				break;
 			}
-			tempIncorrectCount -= 1;
 		}
 		return score;
 	}

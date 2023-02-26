@@ -26,7 +26,7 @@ public class OriginalScore implements GameScore {
 	 * @throws HangmanExceptions
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws HangmanExceptions {
-		
+		if (correctCount < 0 || incorrectCount < 0) throw new ANegativeValue("A negative number can't be sent");
 		int tempIncorrectCount = incorrectCount;
 		while ( score >= 10  && tempIncorrectCount > 0) {
 			score -= 10;
