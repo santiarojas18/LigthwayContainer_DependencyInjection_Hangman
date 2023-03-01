@@ -55,5 +55,14 @@ public class PowerBonusScore implements GameScore {
 		}
 		return score;
 	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void reset() {
+		score = 0;
+		currentCorrectPoints = 0;
+	}
 
 }

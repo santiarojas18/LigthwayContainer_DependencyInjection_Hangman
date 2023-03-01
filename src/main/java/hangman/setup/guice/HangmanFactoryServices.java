@@ -5,6 +5,7 @@
  */
 package hangman.setup.guice;
 
+import hangman.model.BonusScore;
 import hangman.model.English;
 
 /**
@@ -36,7 +37,7 @@ public class HangmanFactoryServices extends com.google.inject.AbstractModule {
         //Initial definition of panel
         bind(HangmanPanel.class).to(HangmanStickmanPanel.class);
         //Initial definition of score
-        bind(GameScore.class).to(PowerBonusScore.class);
+        bind(GameScore.class).to(BonusScore.class);
         
     }
 

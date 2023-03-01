@@ -17,4 +17,6 @@ public interface GameScore {
 	 * 
 	 */
 	public int calculateScore (int correctCount, int incorrectCount) throws HangmanExceptions;
+	public int getScore ();
+	public void reset ();
 }

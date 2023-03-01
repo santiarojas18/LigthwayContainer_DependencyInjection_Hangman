@@ -19,18 +19,18 @@ import java.util.*;
 
 
 public class GameModel {
-    private int incorrectCount;
-    private int correctCount;
-    private LocalDateTime dateTime;
-    private int gameScore;
-    private int[] lettersUsed;
+    protected int incorrectCount;
+    protected int correctCount;
+    protected LocalDateTime dateTime;
+    protected int gameScore;
+    protected int[] lettersUsed;
     
     
-    private HangmanDictionary dictionary;
+    protected HangmanDictionary dictionary;
     
-    private Scanner scan;
-    private String randomWord;
-    private char[] randomWordCharArray;
+    protected Scanner scan;
+    protected String randomWord;
+    protected char[] randomWordCharArray;
     
     
    
@@ -103,7 +103,7 @@ public class GameModel {
 
     //name: selectRandomWord()
     //purpose: selects random word from dictionary
-    private String selectRandomWord() {
+    protected String selectRandomWord() {
         Random rand = new Random();
         List<String> words = dictionary.getAvailableWords();
         return words.get(rand.nextInt(words.size()));

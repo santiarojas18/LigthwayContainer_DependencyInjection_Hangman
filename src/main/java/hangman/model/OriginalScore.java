@@ -1,5 +1,7 @@
 package hangman.model;
 
+import com.google.inject.Singleton;
+
 import hangman.exceptions.*;
 
 /**
@@ -7,7 +9,9 @@ import hangman.exceptions.*;
  * @author Santiago Arevalo y Juan Sanchez
  *
  */
+@Singleton
 public class OriginalScore implements GameScore {
+	
 	private int score;
 	
 	/**
@@ -31,8 +35,17 @@ public class OriginalScore implements GameScore {
 		while ( score >= 10  && tempIncorrectCount > 0) {
 			score -= 10;
 			tempIncorrectCount -= 1;
+			
 		}
 		return score;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void reset() {
+		score = 100;
 	}
 
 }
